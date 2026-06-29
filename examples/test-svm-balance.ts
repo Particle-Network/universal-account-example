@@ -23,7 +23,11 @@ function createNormalUA(): UniversalAccount {
         projectId: process.env.PROJECT_ID || "",
         projectClientKey: process.env.PROJECT_CLIENT_KEY || "",
         projectAppUuid: process.env.PROJECT_APP_UUID || "",
-        ownerAddress: TEST_OWNER_ADDRESS,
+        smartAccountOptions: {
+            name: "UNIVERSAL",
+            version: process.env.UNIVERSAL_ACCOUNT_VERSION || UNIVERSAL_ACCOUNT_VERSION,
+            ownerAddress: TEST_OWNER_ADDRESS,
+        },
         rpcUrl: RPC_URL,
         tradeConfig: {
             slippageBps: 100,

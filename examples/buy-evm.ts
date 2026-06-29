@@ -1,5 +1,5 @@
 import { config } from "dotenv";
-import { CHAIN_ID, UA_TRANSACTION_STATUS, UniversalAccount, SUPPORTED_TOKEN_TYPE } from "@particle-network/universal-account-sdk";
+import { CHAIN_ID, UA_TRANSACTION_STATUS, UniversalAccount, UNIVERSAL_ACCOUNT_VERSION, SUPPORTED_TOKEN_TYPE } from "@particle-network/universal-account-sdk";
 import { formatUnits, getBytes, Wallet } from "ethers";
 
 config();
@@ -10,7 +10,11 @@ config();
         projectId: process.env.PROJECT_ID || "",
         projectClientKey: process.env.PROJECT_CLIENT_KEY || "",
         projectAppUuid: process.env.PROJECT_APP_UUID || "",
-        ownerAddress: wallet.address,
+        smartAccountOptions: {
+            name: 'UNIVERSAL',
+            version: process.env.UNIVERSAL_ACCOUNT_VERSION || UNIVERSAL_ACCOUNT_VERSION,
+            ownerAddress: wallet.address,
+        },
         tradeConfig: {
             // if this is not set, will use auto slippage
             slippageBps: 100, // 100 means 1%, max is 10000

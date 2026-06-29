@@ -1,14 +1,13 @@
 /**
- * @deprecated This example relies on Polygon (POLYGON_MAINNET), which is not
- * supported by the default Universal Account version 2.0.1. Running it with a
- * default 2.0.1 account will throw. Polymarket runs on Polygon only, so this
- * example is deprecated until Polygon is supported again.
+ * @deprecated Polymarket runs on Polygon only, and as of SDK 2.0.3 Polygon was
+ * removed from CHAIN_ID (chain id 137 is hardcoded below). The default Universal
+ * Account version 2.0.1 does not support Polygon, so this example is deprecated
+ * until Polygon is supported again.
  */
 import { AssetType, ClobClient, OrderType, Side } from '@polymarket/clob-client';
 import { Wallet } from '@ethersproject/wallet';
 import { JsonRpcProvider as JsonRpcProviderV5 } from '@ethersproject/providers';
 import {
-    CHAIN_ID,
     EIP7702Authorization,
     IUniversalAccountConfig,
     SUPPORTED_TOKEN_TYPE,
@@ -174,7 +173,8 @@ async function prepareAndApproveUSDCEUniversalTransaction(amount: string, privat
     try {
         // Universal Transaction: get usdc.e and approve usdc.e to polymarket contracts
         const universalTransaction = await universalAccount.createUniversalTransaction({
-            chainId: CHAIN_ID.POLYGON_MAINNET,
+            // Polygon (137) was removed from CHAIN_ID in SDK 2.0.3; this example is deprecated.
+            chainId: 137,
             expectTokens: txs.length > 0 ? [{ type: SUPPORTED_TOKEN_TYPE.USDC, amount: formatUnits(amountIn, 6) }] : [],
             transactions: [
                 ...txs,
@@ -256,7 +256,8 @@ async function approveCTFUniversalTransaction(privateKey: string): Promise<boole
     // approve CTF
     try {
         const universalTransaction = await universalAccount.createUniversalTransaction({
-            chainId: CHAIN_ID.POLYGON_MAINNET,
+            // Polygon (137) was removed from CHAIN_ID in SDK 2.0.3; this example is deprecated.
+            chainId: 137,
             expectTokens: [],
             transactions: [
                 // negRiskAdapter
