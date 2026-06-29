@@ -14,8 +14,6 @@ config();
         tradeConfig: {
             // if this is not set, will use auto slippage
             slippageBps: 100, // 100 means 1%, max is 10000
-            // use parti to pay fee
-            universalGas: true,
             // can use specific token to pay
             usePrimaryTokens: [SUPPORTED_TOKEN_TYPE.USDC]
         },

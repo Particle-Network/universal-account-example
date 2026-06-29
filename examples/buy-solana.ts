@@ -13,8 +13,6 @@ config();
         tradeConfig: {
             // if this is not set, will use auto slippage
             slippageBps: 100, // 100 means 1%, max is 10000
-            // use parti to pay fee
-            universalGas: true,
 
             // if you want to use anti-MEV, you can set the tip amount to pay for the jito
             // recommended is 0.01, it means 0.01 SOL

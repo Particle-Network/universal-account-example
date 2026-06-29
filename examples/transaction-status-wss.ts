@@ -149,7 +149,6 @@ function createWssConnection(
             : {}),
         tradeConfig: {
             slippageBps: 100,
-            universalGas: true,
             solanaMEVTipAmount: 0,
         },
     });

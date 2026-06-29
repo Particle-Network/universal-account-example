@@ -11,9 +11,6 @@ config();
         projectClientKey: process.env.PROJECT_CLIENT_KEY || '',
         projectAppUuid: process.env.PROJECT_APP_UUID || '',
         ownerAddress: wallet.address,
-        tradeConfig: {
-            universalGas: true,
-        },
     });
 
     const smartAccountOptions = await universalAccount.getSmartAccountOptions();

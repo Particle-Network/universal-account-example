@@ -11,25 +11,22 @@ config();
         projectClientKey: process.env.PROJECT_CLIENT_KEY || '',
         projectAppUuid: process.env.PROJECT_APP_UUID || '',
         ownerAddress: wallet.address,
-        tradeConfig: {
-            universalGas: true,
-        },
     });
 
     const smartAccountOptions = await universalAccount.getSmartAccountOptions();
     console.log('Your UA EVM Address:', smartAccountOptions.smartAccountAddress);
     console.log('Your UA Solana Address:', smartAccountOptions.solanaSmartAccountAddress);
 
-    const result = await universalAccount.getTokenPair({
-        chainId: CHAIN_ID.ARBITRUM_MAINNET_ONE,
-        address: '0x912CE59144191C1204E64559FE8253a0e49E6548',
-    });
+    // PARTI token on BNB Chain
+    const partiToken = { chainId: CHAIN_ID.BSC_MAINNET, address: '0x59264f02d301281f3393e1385c0aefd446eb0f00' };
+
+    const result = await universalAccount.getTokenPair(partiToken);
 
     console.log('get token pair success');
 
     const transaction = await universalAccount.createBuyTransaction(
         {
-            token: { chainId: CHAIN_ID.ARBITRUM_MAINNET_ONE, address: '0x912CE59144191C1204E64559FE8253a0e49E6548' },
+            token: partiToken,
             amountInUSD: '0.001',
         },
         {

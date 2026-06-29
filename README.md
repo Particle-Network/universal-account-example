@@ -127,7 +127,7 @@ See [user-assets-wss.ts](examples/user-assets-wss.ts) for a complete example tha
 | Example | Description |
 | --- | --- |
 | [warmup.ts](examples/warmup.ts) | Initialization / warmup |
-| [polymarket.ts](examples/polymarket.ts) | Polymarket integration |
+| [polymarket.ts](examples/polymarket.ts) | Polymarket integration (**deprecated** — relies on Polygon, unsupported by default UA version 2.0.1) |
 | [test-svm-balance.ts](examples/test-svm-balance.ts) | Solana balance test suite |
 
 ## Benchmark
