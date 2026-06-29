@@ -559,10 +559,10 @@
   resolved "https://registry.npmjs.org/@noble/hashes/-/hashes-1.8.0.tgz#cee43d801fcef9644b11b8194857695acd5f815a"
   integrity sha512-jCs9ldd7NwzpgXDIf6P3+NrHh9/sD6CQdxHyjQI+h/6rDNo88ypBxxz45UDuZHz9r3tNz7N/VInSVoVdtXEI4A==
 
-"@particle-network/universal-account-sdk@^2.0.1":
-  version "2.0.1"
-  resolved "https://registry.npmjs.org/@particle-network/universal-account-sdk/-/universal-account-sdk-2.0.1.tgz#57aa0c9b218eee51e0d4e04f6436f334c15bef25"
-  integrity sha512-nTmcqG+T9j9BeGdy1p4PlZNER0B/eMUhHFBtMtmVp92PJIyNdMja1BKZWma9qjR28OcxZsbY6lQxDiz+9Iv0lg==
+"@particle-network/universal-account-sdk@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.npmjs.org/@particle-network/universal-account-sdk/-/universal-account-sdk-2.0.2.tgz#d2e3144253b1674f450723c827ee1149d4ea3fb7"
+  integrity sha512-/36xQsVQuTQSKhY+HIyhDzUhchCwRVxFKAGaP3QtPPYGMQZimiEq3q2V9pEzwCWGsNeqogOCztSLjwpOXYMMNA==
   dependencies:
     "@coral-xyz/anchor" "^0.30.1"
     "@noble/hashes" "^1.7.1"
