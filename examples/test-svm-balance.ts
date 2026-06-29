@@ -27,7 +27,6 @@ function createNormalUA(): UniversalAccount {
         rpcUrl: RPC_URL,
         tradeConfig: {
             slippageBps: 100,
-            universalGas: true,
         },
     });
 }
@@ -203,7 +202,6 @@ async function testEIP7702BuyEVM() {
         },
         tradeConfig: {
             slippageBps: 100,
-            universalGas: true,
         },
     };
 
@@ -279,7 +277,6 @@ async function testEIP7702BuySolanaWithEIP7702Index() {
         },
         tradeConfig: {
             slippageBps: 100,
-            universalGas: true,
             solanaMEVTipAmount: 0,
         },
     };
@@ -356,7 +353,6 @@ async function testEIP7702BuySolanaWithClassicIndex() {
         },
         tradeConfig: {
             slippageBps: 100,
-            universalGas: true,
             solanaMEVTipAmount: 0,
         },
     };

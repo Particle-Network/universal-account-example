@@ -1,3 +1,9 @@
+/**
+ * @deprecated This example relies on Polygon (POLYGON_MAINNET), which is not
+ * supported by the default Universal Account version 2.0.1. Running it with a
+ * default 2.0.1 account will throw. Polymarket runs on Polygon only, so this
+ * example is deprecated until Polygon is supported again.
+ */
 import { AssetType, ClobClient, OrderType, Side } from '@polymarket/clob-client';
 import { Wallet } from '@ethersproject/wallet';
 import { JsonRpcProvider as JsonRpcProviderV5 } from '@ethersproject/providers';
