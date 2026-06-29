@@ -1,5 +1,5 @@
 import { config } from "dotenv";
-import { CHAIN_ID, SOLANA_ACCOUNT_INDEX, UniversalAccount } from "@particle-network/universal-account-sdk";
+import { CHAIN_ID, SOLANA_ACCOUNT_INDEX, UNIVERSAL_ACCOUNT_VERSION, UniversalAccount } from "@particle-network/universal-account-sdk";
 import { getBytes, Wallet } from "ethers";
 import WebSocket from "ws";
 
@@ -135,18 +135,13 @@ function createWssConnection(
         projectId: process.env.PROJECT_ID || "",
         projectClientKey: process.env.PROJECT_CLIENT_KEY || "",
         projectAppUuid: process.env.PROJECT_APP_UUID || "",
-        ownerAddress: wallet.address,
-        ...(useEIP7702 || solanaAccountIndex !== undefined
-            ? {
-                  smartAccountOptions: {
-                      useEIP7702,
-                      name: "UNIVERSAL",
-                      version: process.env.UNIVERSAL_ACCOUNT_VERSION || "1.0.3",
-                      ownerAddress: wallet.address,
-                      ...(solanaAccountIndex !== undefined ? { solanaAccountIndex } : {}),
-                  },
-              }
-            : {}),
+        smartAccountOptions: {
+            name: "UNIVERSAL",
+            version: process.env.UNIVERSAL_ACCOUNT_VERSION || UNIVERSAL_ACCOUNT_VERSION,
+            ownerAddress: wallet.address,
+            ...(useEIP7702 ? { useEIP7702 } : {}),
+            ...(solanaAccountIndex !== undefined ? { solanaAccountIndex } : {}),
+        },
         tradeConfig: {
             slippageBps: 100,
             solanaMEVTipAmount: 0,

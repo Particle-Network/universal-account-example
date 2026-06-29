@@ -1,5 +1,5 @@
 import { config } from "dotenv";
-import { CHAIN_ID, UniversalAccount } from "@particle-network/universal-account-sdk";
+import { CHAIN_ID, UniversalAccount, UNIVERSAL_ACCOUNT_VERSION } from "@particle-network/universal-account-sdk";
 import { Interface, getBytes, Wallet } from "ethers";
 
 config();
@@ -10,7 +10,11 @@ config();
         projectId: process.env.PROJECT_ID || "",
         projectClientKey: process.env.PROJECT_CLIENT_KEY || "",
         projectAppUuid: process.env.PROJECT_APP_UUID || "",
-        ownerAddress: wallet.address,
+        smartAccountOptions: {
+            name: 'UNIVERSAL',
+            version: process.env.UNIVERSAL_ACCOUNT_VERSION || UNIVERSAL_ACCOUNT_VERSION,
+            ownerAddress: wallet.address,
+        },
     });
 
     const smartAccountOptions = await universalAccount.getSmartAccountOptions();

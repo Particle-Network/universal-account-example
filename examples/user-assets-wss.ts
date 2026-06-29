@@ -1,5 +1,5 @@
 import { config } from "dotenv";
-import { SOLANA_ACCOUNT_INDEX, UniversalAccount } from "@particle-network/universal-account-sdk";
+import { SOLANA_ACCOUNT_INDEX, UNIVERSAL_ACCOUNT_VERSION, UniversalAccount } from "@particle-network/universal-account-sdk";
 import { Wallet } from "ethers";
 import WebSocket from "ws";
 
@@ -59,7 +59,11 @@ function setupHeartbeat(ws: WebSocket): NodeJS.Timeout {
         projectId: process.env.PROJECT_ID || "",
         projectClientKey: process.env.PROJECT_CLIENT_KEY || "",
         projectAppUuid: process.env.PROJECT_APP_UUID || "",
-        ownerAddress: wallet.address,
+        smartAccountOptions: {
+            name: "UNIVERSAL",
+            version: process.env.UNIVERSAL_ACCOUNT_VERSION || UNIVERSAL_ACCOUNT_VERSION,
+            ownerAddress: wallet.address,
+        },
     });
 
     const smartAccountOptions = await universalAccount.getSmartAccountOptions();
@@ -81,7 +85,7 @@ function setupHeartbeat(ws: WebSocket): NodeJS.Timeout {
     const subscribeParams = {
         ownerAddress: wallet.address,
         name: "UNIVERSAL",
-        version: process.env.UNIVERSAL_ACCOUNT_VERSION || "1.0.3",
+        version: process.env.UNIVERSAL_ACCOUNT_VERSION || UNIVERSAL_ACCOUNT_VERSION,
         useEIP7702,
         ...(solanaAccountIndex !== undefined ? { solanaAccountIndex } : {}),
     };
